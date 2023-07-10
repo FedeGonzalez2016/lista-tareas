@@ -34,8 +34,8 @@ const ListaTareas: React.FC = () => {
       {tareas.length > 0 ? (
         <ul>
           {tareas.map(tarea => (
-            <li key={tarea.id} onClick={() => mostrarContenido(tarea.titulo)}>
-              {tarea.titulo}
+            <li key={tarea.id}>
+              <span onClick={() => mostrarContenido(tarea.titulo)}>{tarea.titulo}</span>
               <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
             </li>
           ))}
