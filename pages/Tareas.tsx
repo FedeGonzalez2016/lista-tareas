@@ -24,13 +24,17 @@ const ListaTareas: React.FC = () => {
     setTareas(tareasActualizadas);
   };
 
+  const mostrarContenido = (contenido: string) => {
+    alert(contenido);
+  };
+
   return (
     <div>
       <h2>Lista de tareas:</h2>
       {tareas.length > 0 ? (
         <ul>
           {tareas.map(tarea => (
-            <li key={tarea.id}>
+            <li key={tarea.id} onClick={() => mostrarContenido(tarea.titulo)}>
               {tarea.titulo}
               <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
             </li>
