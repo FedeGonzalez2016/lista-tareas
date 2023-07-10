@@ -31,13 +31,13 @@ const ListaTareas: React.FC = () => {
   return (
     <div>
       <h2>Lista de tareas:</h2>
-      {tareas.length > 0 ? (
+      {tareas.length > 0 ? ( // VALIDACION PARA EVITAR QUE SE INGRESE TAREA CON CAMPOS VACIOS
         <ul>
           {tareas.map(tarea => (
             <li key={tarea.id}>
               <span onClick={() => mostrarContenido(tarea.titulo)}>{tarea.titulo}</span>
-              <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
-            </li>
+              <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button> 
+            </li> // TAREA CON BOTON ELIMINAR
           ))}
         </ul>
       ) : (
@@ -51,7 +51,7 @@ const ListaTareas: React.FC = () => {
 interface EntradaTareaProps {
   agregarTarea: (tarea: string) => void;
 }
-
+// AGREGAR NUEVAS TAREAS
 const EntradaTarea: React.FC<EntradaTareaProps> = ({ agregarTarea }) => {
   const [nuevaTarea, setNuevaTarea] = useState<string>('');
 
@@ -61,7 +61,7 @@ const EntradaTarea: React.FC<EntradaTareaProps> = ({ agregarTarea }) => {
       setNuevaTarea('');
     }
   };
-
+  // RENDERIZADO DE TAREAS
   return (
     <div>
       <input type="text" value={nuevaTarea} onChange={e => setNuevaTarea(e.target.value)} />

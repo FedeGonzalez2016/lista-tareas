@@ -6,7 +6,7 @@ interface Tarea {
   id: number;
   titulo: string;
 }
-
+// RENDERIZADO DE COMPONENTES EN ARCHIVO PRINCIPAL
 export default function Home() {
   return (
     <>
