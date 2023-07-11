@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Container } from '@mui/material';
+import { Button } from '@mui/material';
 
 interface Tarea {
   id: number;
@@ -29,22 +31,27 @@ const ListaTareas: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Lista de tareas:</h2>
-      {tareas.length > 0 ? ( // VALIDACION PARA EVITAR QUE SE INGRESE TAREA CON CAMPOS VACIOS
-        <ul>
-          {tareas.map(tarea => (
-            <li key={tarea.id}>
-              <span onClick={() => mostrarContenido(tarea.titulo)}>{tarea.titulo}</span>
-              <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button> 
-            </li> // TAREA CON BOTON ELIMINAR
-          ))}
-        </ul>
-      ) : (
-        <p>No hay tareas.</p>
-      )}
-      <EntradaTarea agregarTarea={agregarTarea} />
-    </div>
+    <Container
+      maxWidth="sm"
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}
+    >
+      <div>
+        <h2>LISTA DE TAREAS</h2>
+        {tareas.length > 0 ? (
+          <ul>
+            {tareas.map(tarea => (
+              <li key={tarea.id}>
+                <span onClick={() => mostrarContenido(tarea.titulo)}>{tarea.titulo}</span>
+                <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No hay tareas.</p>
+        )}
+        <EntradaTarea agregarTarea={agregarTarea} />
+      </div>
+    </Container>
   );
 };
 
